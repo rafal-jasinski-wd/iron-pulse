@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronPulse | Modern Fitness & Training</title>
+    <meta name="description" content="Transform your body and mind with IronPulse personalized training programs and expert coaching.">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">IRON<span>PULSE</span></a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#trainers">Trainers</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                    <!-- Sun Icon (hidden by default in dark mode) -->
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero section">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <span class="badge">Elevate Your Fitness</span>
+                    <h1>Unlock Your <span>Ultimate</span> Potential</h1>
+                    <p>Join an elite community driven by results. Personalized training, scientific nutrition, and world-class coaching to transform your body and mind.</p>
+                    <div class="hero-btns">
+                        <a href="#pricing" class="btn btn-primary">Start Training</a>
+                        <a href="#programs" class="btn btn-outline">Explore Programs</a>
+                    </div>
+                </div>
+                <div class="hero-image reveal delay-1">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1000&q=80" alt="Athlete training with barbell" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features section bg-surface">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Why Choose IronPulse</h2>
+                    <p>We provide a comprehensive ecosystem designed exclusively for your success. Everything you need to achieve greatness.</p>
+                </div>
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card reveal delay-1">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
+                        <h3>Personalized Training</h3>
+                        <p>Workouts tailored specifically to your goals, body type, and schedule for maximum efficiency and results.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="feature-card reveal delay-2">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 1 8.3C19 15 15.66 20 11 20Z"/><path d="M9 14h.01"/></svg>
+                        </div>
+                        <h3>Nutrition Plans</h3>
+                        <p>Scientific diet strategies and macronutrient tracking to fuel your performance and optimize recovery.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="feature-card reveal delay-3">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        </div>
+                        <h3>Progress Tracking</h3>
+                        <p>Advanced metrics and visual charts to track your strength gains, body composition, and consistent progress.</p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="feature-card reveal delay-4">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Expert Coaches</h3>
+                        <p>Access high-level professionals ready to guide you step-by-step and keep you motivated on your journey.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="programs section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Our Signature Programs</h2>
+                    <p>Select a pathway forged by science and experience to push your physical boundaries.</p>
+                </div>
+                <div class="programs-grid">
+                    <div class="program-card reveal">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&h=800&q=80" alt="Strength Training" loading="lazy">
+                        <div class="program-info">
+                            <h3>Strength & Power</h3>
+                            <p>Build raw muscular strength through heavy compound movements.</p>
+                        </div>
+                    </div>
+                    <div class="program-card reveal delay-1">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=600&h=800&q=80" alt="Fat Loss" loading="lazy">
+                        <div class="program-info">
+                            <h3>Fat Incinerator</h3>
+                            <p>High-intensity circuits combined with sustainable deficit planning.</p>
+                        </div>
+                    </div>
+                    <div class="program-card reveal delay-2">
+                        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=600&h=800&q=80" alt="Muscle Building" loading="lazy">
+                        <div class="program-info">
+                            <h3>Hypertrophy</h3>
+                            <p>Sculpt your physique with targeted isolation and volume training.</p>
+                        </div>
+                    </div>
+                    <div class="program-card reveal delay-3">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&h=800&q=80" alt="Mobility" loading="lazy">
+                        <div class="program-info">
+                            <h3>Mobility & Recovery</h3>
+                            <p>Restore flexibility, prevent injuries, and improve joint health.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trainers Section -->
+        <section id="trainers" class="trainers section bg-surface">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Meet Your Coaches</h2>
+                    <p>Train with industry-leading professionals who are dedicated to unlocking your potential.</p>
+                </div>
+                <div class="trainers-grid">
+                    <div class="trainer-card reveal">
+                        <div class="trainer-img">
+                            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&h=500&q=80" alt="Marcus Johnson" loading="lazy">
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Marcus Johnson</h3>
+                            <span>Head Strength Coach</span>
+                        </div>
+                    </div>
+                    <div class="trainer-card reveal delay-1">
+                        <div class="trainer-img">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80" alt="Sarah Chen" loading="lazy">
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Sarah Chen</h3>
+                            <span>Nutrition & Mobility Specialist</span>
+                        </div>
+                    </div>
+                    <div class="trainer-card reveal delay-2">
+                        <div class="trainer-img">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=500&q=80" alt="David Miller" loading="lazy">
+                        </div>
+                        <div class="trainer-info">
+                            <h3>David Miller</h3>
+                            <span>HIIT & Conditioning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="testimonials section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Stories of Transformation</h2>
+                    <p>Don't just take our word for it. See what our community has accomplished.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"IronPulse completely changed my approach to fitness. The personalized programming and constant support helped me drop 30lbs and build lean muscle."</p>
+                        <div class="client">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" loading="lazy">
+                            <div>
+                                <h4>James Wilson</h4>
+                                <span>Software Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal delay-1">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"As a busy mother, I never thought I'd find time to get in shape. The nutrition plans and flexible workouts seamlessly fit into my crazy lifestyle."</p>
+                        <div class="client">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" loading="lazy">
+                            <div>
+                                <h4>Amanda Brooks</h4>
+                                <span>Marketing Director</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal delay-2">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"The coaches here are top tier. They fixed my deadlift form, cured my back pain, and pushed me past plateaus I was stuck at for years."</p>
+                        <div class="client">
+                            <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Client" loading="lazy">
+                            <div>
+                                <h4>Michael Chang</h4>
+                                <span>Architect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section">
+            <div class="container cta-container reveal">
+                <h2>Ready to Start Your Transformation?</h2>
+                <p>Join today and get your first personalized workout plan and consultation for free.</p>
+                <a href="#register" class="btn btn-primary btn-large">Start Training Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">IRON<span>PULSE</span></a>
+                <p>Empowering individuals to reach their absolute peak physical and mental condition through expert guidance and proven systems.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#">Strength & Power</a></li>
+                        <li><a href="#">Fat Loss</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <div class="creator-badge">
+                    <span class="creator-text">CREATED BY</span>
+                    <img src="./image/2206.png" alt="Creator Logo" class="creator-logo">
+                </div>
+                <p>&copy; 2026 IronPulse Fitness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
