@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Configuration for the IntersectionObserver
     const revealOptions = {
-        root: null, // Use the viewport as wrapper
-        rootMargin: '0px 0px -100px 0px', // Trigger slightly before the element hits the bottom
-        threshold: 0.1 // 10% of element must be visible
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.05 // 5% visibility is enough to trigger
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -110,6 +110,31 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(element);
     });
     
+    // ==========================================
+    // Trainer Card Expansion
+    // ==========================================
+    const trainerCards = document.querySelectorAll('.trainer-card');
+
+    trainerCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const isExpanded = card.classList.contains('expanded');
+            
+            // Close all other cards
+            trainerCards.forEach(otherCard => {
+                otherCard.classList.remove('expanded');
+                otherCard.setAttribute('aria-expanded', 'false');
+            });
+
+            // Toggle current card
+            if (!isExpanded) {
+                card.classList.add('expanded');
+                card.setAttribute('aria-expanded', 'true');
+            } else {
+                card.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
     // ==========================================
     // Smooth Scrolling for Anchor Links
     // ==========================================
@@ -135,4 +160,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ==========================================
+    // Registration Form Handling
+    // ==========================================
+    const registrationForm = document.getElementById('registration-form');
+    const thankYouCard = document.getElementById('thank-you-card');
+    const resetBtn = document.getElementById('reset-form');
+
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real app, you would send form data to a server here
+            // const formData = new FormData(registrationForm);
+            
+            // Show loading state (optional) or just switch cards
+            registrationForm.classList.add('hidden');
+            thankYouCard.classList.remove('hidden');
+            
+            // Scroll into view if needed
+            thankYouCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            thankYouCard.classList.add('hidden');
+            registrationForm.classList.remove('hidden');
+            registrationForm.reset();
+            
+            // Scroll back to form start smoothly
+            const registerSection = document.getElementById('register');
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            window.scrollTo({
+                top: registerSection.offsetTop - navHeight,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
