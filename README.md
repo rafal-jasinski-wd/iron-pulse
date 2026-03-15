@@ -32,16 +32,6 @@ https://rafal-jasinski-wd.github.io/iron-pulse/
 ![Trainers Desktop](screenshots/trainers_desktop.png)
 ![Pricing Desktop](screenshots/pricing_desktop.png)
 
-### 📱 Tablet View (768px)
-![Hero Tablet](screenshots/hero_tablet.png)
-![Trainers Tablet](screenshots/trainers_tablet.png)
-![Pricing Tablet](screenshots/pricing_tablet.png)
-
-### 📲 Mobile View (375px)
-![Hero Mobile](screenshots/hero_mobile.png)
-![Trainers Mobile](screenshots/trainers_mobile.png)
-![Pricing Mobile](screenshots/pricing_mobile.png)
-
 ---
 
 ## 📁 Project Structure
@@ -51,11 +41,15 @@ iron-pulse/
 ├── index.html          # Main HTML — all sections
 ├── style.css           # Complete stylesheet (dark/light tokens)
 ├── script.js           # Theme toggle, nav, reveals, form logic
-├── image/
+├── images/
 │   ├── trainer_1_marcus.png
 │   ├── trainer_2_sarah.png
 │   ├── trainer_3_david.png
 │   └── rj-logo.png
+├── screenshots/
+│   ├── hero_desktop.png
+│   ├── trainers_desktop.png
+│   └── pricing_desktop.png
 └── README.md
 ```
 
