@@ -4,6 +4,12 @@ A sleek, responsive fitness landing page built with pure **HTML**, **CSS**, and 
 
 ---
 
+## 🔗 Live Demo
+
+https://rafal-jasinski-wd.github.io/iron-pulse/
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
@@ -16,6 +22,25 @@ A sleek, responsive fitness landing page built with pure **HTML**, **CSS**, and 
 | 📝 **Registration Form** | Goal & membership selection with a "Thank You" success state |
 | 🧭 **Smooth Scrolling** | Anchor-based navigation with offset-aware scrolling |
 | 🖼️ **AI-Generated Imagery** | Custom-branded trainer portraits |
+
+---
+
+## 📸 Screenshots
+
+### 🖥️ Desktop View (1440px)
+![Hero Desktop](screenshots/hero_desktop.png)
+![Trainers Desktop](screenshots/trainers_desktop.png)
+![Pricing Desktop](screenshots/pricing_desktop.png)
+
+### 📱 Tablet View (768px)
+![Hero Tablet](screenshots/hero_tablet.png)
+![Trainers Tablet](screenshots/trainers_tablet.png)
+![Pricing Tablet](screenshots/pricing_tablet.png)
+
+### 📲 Mobile View (375px)
+![Hero Mobile](screenshots/hero_mobile.png)
+![Trainers Mobile](screenshots/trainers_mobile.png)
+![Pricing Mobile](screenshots/pricing_mobile.png)
 
 ---
 
@@ -78,6 +103,21 @@ npx serve .
 7. **CTA** — Full-width call to action
 8. **Registration** — Contact form with success confirmation
 9. **Footer** — Brand info, links, social icons, creator badge
+
+---
+
+## 🧑‍💻 Skills Demonstrated
+
+- **Responsive Web Design**: Implementing a fluid, mobile-first experience using Flexbox and CSS Grid.
+- **CSS Architecture**: Organized, maintainable CSS with custom properties (CSS variables) for theme management.
+- **Modern JavaScript**: Using `IntersectionObserver` for performant scroll animations and DOM manipulation for interactive UI.
+- **UI/UX Excellence**: Focused on accessibility (ARIA), smooth transitions, and premium aesthetic design.
+
+---
+
+## 👤 Author
+
+- **Rafał Jasiński** — [GitHub Profile](https://github.com/rafal-jasinski-wd)
 
 ---
 
