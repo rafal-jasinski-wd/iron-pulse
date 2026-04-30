@@ -68,17 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // Sticky Navigation on Scroll
+    // Sticky Navigation on Scroll (Optimized)
     // ==========================================
     const navbar = document.getElementById('navbar');
+    let isTicking = false;
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+        if (!isTicking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                isTicking = false;
+            });
+            isTicking = true;
         }
-    });
+    }, { passive: true });
 
     // ==========================================
     // Intersection Observer for Scroll Reveals
@@ -111,26 +118,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // ==========================================
-    // Trainer Card Expansion
+    // Trainer Card Expansion (Optimized)
     // ==========================================
     const trainerCards = document.querySelectorAll('.trainer-card');
 
     trainerCards.forEach(card => {
         card.addEventListener('click', () => {
             const isExpanded = card.classList.contains('expanded');
+            const bio = card.querySelector('.trainer-bio');
             
             // Close all other cards
             trainerCards.forEach(otherCard => {
-                otherCard.classList.remove('expanded');
-                otherCard.setAttribute('aria-expanded', 'false');
+                if (otherCard !== card && otherCard.classList.contains('expanded')) {
+                    otherCard.classList.remove('expanded');
+                    otherCard.setAttribute('aria-expanded', 'false');
+                    const otherBio = otherCard.querySelector('.trainer-bio');
+                    otherBio.style.height = otherBio.scrollHeight + 'px';
+                    // Force reflow to apply pixel height before animating to 0
+                    void otherBio.offsetHeight;
+                    otherBio.style.height = '0px';
+                }
             });
 
             // Toggle current card
             if (!isExpanded) {
                 card.classList.add('expanded');
                 card.setAttribute('aria-expanded', 'true');
+                
+                // Animate to full height
+                bio.style.height = bio.scrollHeight + 'px';
+                
+                // Reset to auto after transition so it handles resizing
+                bio.addEventListener('transitionend', function handler(e) {
+                    if (e.propertyName === 'height' && card.classList.contains('expanded')) {
+                        bio.style.height = 'auto';
+                        bio.removeEventListener('transitionend', handler);
+                    }
+                });
             } else {
                 card.setAttribute('aria-expanded', 'false');
+                
+                // Lock height to current pixel value before transitioning to 0
+                bio.style.height = bio.scrollHeight + 'px';
+                // Force reflow
+                void bio.offsetHeight;
+                
+                card.classList.remove('expanded');
+                bio.style.height = '0px';
             }
         });
     });

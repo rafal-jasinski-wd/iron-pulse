@@ -28,9 +28,9 @@ https://rafal-jasinski-wd.github.io/iron-pulse/
 ## 📸 Screenshots
 
 ### 🖥️ Desktop View (1440px)
-![Hero Desktop](screenshots/hero_desktop.png)
-![Trainers Desktop](screenshots/trainers_desktop.png)
-![Pricing Desktop](screenshots/pricing_desktop.png)
+![Hero Desktop](screenshots/hero_desktop.webp)
+![Trainers Desktop](screenshots/trainers_desktop.webp)
+![Pricing Desktop](screenshots/pricing_desktop.webp)
 
 ---
 
@@ -42,14 +42,14 @@ iron-pulse/
 ├── style.css           # Complete stylesheet (dark/light tokens)
 ├── script.js           # Theme toggle, nav, reveals, form logic
 ├── images/
-│   ├── trainer_1_marcus.png
-│   ├── trainer_2_sarah.png
-│   ├── trainer_3_david.png
-│   └── rj-logo.png
+│   ├── trainer_1_marcus.webp
+│   ├── trainer_2_sarah.webp
+│   ├── trainer_3_david.webp
+│   └── rj-logo.webp
 ├── screenshots/
-│   ├── hero_desktop.png
-│   ├── trainers_desktop.png
-│   └── pricing_desktop.png
+│   ├── hero_desktop.webp
+│   ├── trainers_desktop.webp
+│   └── pricing_desktop.webp
 └── README.md
 ```
 

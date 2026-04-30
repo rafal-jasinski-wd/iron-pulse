@@ -8,11 +8,47 @@
     <meta name="description"
         content="Transform your body and mind with IronPulse's personalized training programs and expert coaching.">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ironpulse.fitness/">
+    <meta property="og:title" content="IronPulse | Modern Fitness & Training">
+    <meta property="og:description" content="Transform your body and mind with IronPulse's personalized training programs and expert coaching.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ironpulse.fitness/">
+    <meta property="twitter:title" content="IronPulse | Modern Fitness & Training">
+    <meta property="twitter:description" content="Transform your body and mind with IronPulse's personalized training programs and expert coaching.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FitnessCenter",
+      "name": "IronPulse",
+      "image": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1920&q=80",
+      "description": "Transform your body and mind with IronPulse's personalized training programs and expert coaching.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Performance Ave",
+        "addressLocality": "Fitness City",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-555-000-IRON",
+      "priceRange": "$$$"
+    }
+    </script>
+
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+    <!-- Preload Hero Image for LCP -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1920&q=80">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -213,7 +249,7 @@
                 <div class="trainers-grid">
                     <div class="trainer-card card-hover reveal" role="button" aria-expanded="false" tabindex="0">
                         <div class="trainer-img">
-                            <img src="./images/trainer_1_marcus.png" alt="Marcus Johnson" loading="lazy">
+                            <img src="./images/trainer_1_marcus.webp" alt="Marcus Johnson" loading="lazy">
                         </div>
                         <div class="trainer-content">
                             <div class="trainer-info-header">
@@ -238,7 +274,7 @@
                     <div class="trainer-card card-hover reveal delay-1" role="button" aria-expanded="false"
                         tabindex="0">
                         <div class="trainer-img">
-                            <img src="./images/trainer_2_sarah.png" alt="Sarah Chen" loading="lazy">
+                            <img src="./images/trainer_2_sarah.webp" alt="Sarah Chen" loading="lazy">
                         </div>
                         <div class="trainer-content">
                             <div class="trainer-info-header">
@@ -263,7 +299,7 @@
                     <div class="trainer-card card-hover reveal delay-2" role="button" aria-expanded="false"
                         tabindex="0">
                         <div class="trainer-img">
-                            <img src="./images/trainer_3_david.png" alt="David Johnson" loading="lazy">
+                            <img src="./images/trainer_3_david.webp" alt="David Johnson" loading="lazy">
                         </div>
                         <div class="trainer-content">
                             <div class="trainer-info-header">
@@ -623,7 +659,7 @@
             <div class="container footer-bottom-container">
                 <div class="creator-badge">
                     <span class="creator-text">CREATED BY</span>
-                    <img src="./images/rj-logo.png" alt="Creator Logo" class="creator-logo">
+                    <img src="./images/rj-logo.webp" alt="Creator Logo" class="creator-logo">
                 </div>
                 <p>&copy; 2026 IronPulse Fitness. All rights reserved.</p>
             </div>

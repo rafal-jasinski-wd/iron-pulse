@@ -283,14 +283,16 @@ img {
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     background-color: var(--primary);
-    transition: width var(--transition-fast);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-fast);
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 .nav-actions {
@@ -353,7 +355,7 @@ img {
     .nav-menu {
         position: fixed;
         top: var(--nav-height);
-        left: -100%;
+        left: 0;
         width: 100%;
         height: calc(100vh - var(--nav-height));
         background-color: var(--bg-color);
@@ -361,12 +363,14 @@ img {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: left var(--transition-normal);
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
         z-index: 999;
+        will-change: transform;
     }
 
     .nav-menu.active {
-        left: 0;
+        transform: translateX(0);
     }
 
     .nav-links {
@@ -404,7 +408,6 @@ img {
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     color: #ffffff;
 }
 
@@ -650,19 +653,19 @@ img {
 }
 
 .trainer-bio {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows var(--transition-normal), margin-top var(--transition-normal);
+    height: 0;
+    opacity: 0;
     overflow: hidden;
+    transition: height var(--transition-normal) ease-out, opacity var(--transition-normal) ease-out;
+    will-change: height, opacity;
 }
 
 .trainer-card.expanded .trainer-bio {
-    grid-template-rows: 1fr;
-    margin-top: 1rem;
+    opacity: 1;
 }
 
 .trainer-bio p {
-    min-height: 0;
+    padding-top: 1rem;
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
@@ -1222,5 +1225,23 @@ img {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
     }
 }
