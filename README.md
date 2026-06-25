@@ -12,22 +12,23 @@ https://rafal-jasinski-wd.github.io/iron-pulse/
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 🌗 **Dark / Light Mode** | Theme toggle with `localStorage` persistence |
-| 📱 **Fully Responsive** | Mobile-first design with a hamburger navigation |
-| 🎞️ **Scroll Animations** | IntersectionObserver-powered reveal effects |
-| 🧑‍🏫 **Interactive Trainer Cards** | Click-to-expand bios with accordion behavior |
-| 💳 **Membership Pricing** | Three-tier pricing cards (Starter / Pro / Ultimate) |
-| 📝 **Registration Form** | Goal & membership selection with a "Thank You" success state |
-| 🧭 **Smooth Scrolling** | Anchor-based navigation with offset-aware scrolling |
-| 🖼️ **AI-Generated Imagery** | Custom-branded trainer portraits |
+| Feature                          | Description                                                  |
+| -------------------------------- | ------------------------------------------------------------ |
+| 🌗 **Dark / Light Mode**         | Theme toggle with `localStorage` persistence                 |
+| 📱 **Fully Responsive**          | Mobile-first design with a hamburger navigation              |
+| 🎞️ **Scroll Animations**         | IntersectionObserver-powered reveal effects                  |
+| 🧑‍🏫 **Interactive Trainer Cards** | Click-to-expand bios with accordion behavior                 |
+| 💳 **Membership Pricing**        | Three-tier pricing cards (Starter / Pro / Ultimate)          |
+| 📝 **Registration Form**         | Goal & membership selection with a "Thank You" success state |
+| 🧭 **Smooth Scrolling**          | Anchor-based navigation with offset-aware scrolling          |
+| 🖼️ **AI-Generated Imagery**      | Custom-branded trainer portraits                             |
 
 ---
 
 ## 📸 Screenshots
 
 ### 🖥️ Desktop View (1440px)
+
 ![Hero Desktop](screenshots/hero_desktop.webp)
 ![Trainers Desktop](screenshots/trainers_desktop.webp)
 ![Pricing Desktop](screenshots/pricing_desktop.webp)
@@ -40,12 +41,18 @@ https://rafal-jasinski-wd.github.io/iron-pulse/
 iron-pulse/
 ├── index.html          # Main HTML — all sections
 ├── style.css           # Complete stylesheet (dark/light tokens)
-├── script.js           # Theme toggle, nav, reveals, form logic
+├── script.js           # ES Module entry point (orchestrator)
+├── js/                 # Feature modules
+│   ├── theme.js        # Dark/light toggle + ARIA labels
+│   ├── navigation.js   # Mobile menu, sticky header, smooth scroll
+│   ├── reveals.js      # IntersectionObserver scroll animations
+│   ├── accordion.js    # Trainer card expand/collapse
+│   └── form.js         # Registration form + success state
 ├── images/
 │   ├── trainer_1_marcus.webp
 │   ├── trainer_2_sarah.webp
 │   ├── trainer_3_david.webp
-│   └── rj-logo.webp
+│   └── creatorLogo.svg
 ├── screenshots/
 │   ├── hero_desktop.webp
 │   ├── trainers_desktop.webp
@@ -112,5 +119,3 @@ npx serve .
 ## 👤 Author
 
 - **Rafał Jasiński** — [GitHub Profile](https://github.com/rafal-jasinski-wd)
-
-

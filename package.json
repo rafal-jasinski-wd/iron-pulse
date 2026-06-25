@@ -1,0 +1,32 @@
+{
+    "name": "iron-pulse",
+    "version": "1.0.0",
+    "description": "Modern fitness landing page optimized for performance, accessibility, and clean design architecture",
+    "type": "module",
+    "main": "script.js",
+    "scripts": {
+        "serve": "npx serve -l 3000 .",
+        "lint:js": "eslint \"**/*.js\"",
+        "lint:css": "stylelint \"**/*.css\"",
+        "lint": "npm run lint:js && npm run lint:css",
+        "format:check": "prettier --check \"**/*.{html,css,js,json,md}\"",
+        "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+        "validate": "npm run lint && npm run format:check"
+    },
+    "keywords": [
+        "fitness",
+        "landing-page",
+        "vanilla-js",
+        "accessibility",
+        "seo",
+        "performance"
+    ],
+    "author": "IronPulse Team",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "prettier": "^3.2.5",
+        "stylelint": "^16.2.1",
+        "stylelint-config-standard": "^36.0.0"
+    }
+}
