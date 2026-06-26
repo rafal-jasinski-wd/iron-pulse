@@ -408,6 +408,10 @@ img {
     display: none;
 }
 
+[data-theme='light'] #theme-toggle:hover {
+    color: #000;
+}
+
 /* Mobile Menu Overlay */
 @media (width <= 767px) {
     .nav-menu {
