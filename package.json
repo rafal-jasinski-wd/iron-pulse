@@ -4,6 +4,9 @@
     "description": "Modern fitness landing page optimized for performance, accessibility, and clean design architecture",
     "type": "module",
     "main": "script.js",
+    "engines": {
+        "node": ">=20.0.0"
+    },
     "scripts": {
         "serve": "npx serve -l 3000 .",
         "test": "vitest run",
