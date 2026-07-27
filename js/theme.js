@@ -9,19 +9,12 @@
 
 import { Theme, AriaState } from './constants.js';
 
-/** @type {HTMLElement} */
-const htmlElement = document.documentElement;
-
-/** @type {HTMLButtonElement | null} */
-const themeToggleBtn = /** @type {HTMLButtonElement | null} */ (
-    document.getElementById('theme-toggle')
-);
-
 /**
  * Updates the theme toggle button's aria-label to reflect the current action.
  * @param {string} theme - The current active theme ('dark' | 'light').
+ * @param {HTMLButtonElement | null} themeToggleBtn - The theme toggle button.
  */
-function updateThemeToggleAccessibility(theme) {
+function updateThemeToggleAccessibility(theme, themeToggleBtn) {
     if (themeToggleBtn) {
         const label = theme === Theme.DARK ? 'Switch to light theme' : 'Switch to dark theme';
         themeToggleBtn.setAttribute(AriaState.LABEL, label);
@@ -34,8 +27,14 @@ function updateThemeToggleAccessibility(theme) {
  * and binds the toggle click handler.
  */
 export function initTheme() {
+    const htmlElement = document.documentElement;
+    /** @type {HTMLButtonElement | null} */
+    const themeToggleBtn = /** @type {HTMLButtonElement | null} */ (
+        document.getElementById('theme-toggle')
+    );
+
     const initialTheme = htmlElement.getAttribute('data-theme') || Theme.DARK;
-    updateThemeToggleAccessibility(initialTheme);
+    updateThemeToggleAccessibility(initialTheme, themeToggleBtn);
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
@@ -43,8 +42,12 @@ export function initTheme() {
             const newTheme = currentTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
 
             htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeToggleAccessibility(newTheme);
+            try {
+                localStorage.setItem('theme', newTheme);
+            } catch (e) {
+                // Ignore storage errors in private browsing
+            }
+            updateThemeToggleAccessibility(newTheme, themeToggleBtn);
         });
     }
 }

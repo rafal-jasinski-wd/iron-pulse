@@ -9,6 +9,12 @@
  * @module theme-init
  */
 (function () {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    try {
+        const savedTheme = localStorage.getItem('theme');
+        const validTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+        document.documentElement.setAttribute('data-theme', validTheme);
+    } catch (err) {
+        // Fallback gracefully if localStorage is disabled or throws in private browsing
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
 })();

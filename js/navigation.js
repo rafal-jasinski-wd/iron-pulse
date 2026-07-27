@@ -9,22 +9,12 @@
 
 import { ClassName, AriaState } from './constants.js';
 
-/** @type {HTMLElement | null} */
-const navbar = document.getElementById('navbar');
-
-/** @type {HTMLButtonElement | null} */
-const mobileToggle = document.querySelector('.mobile-toggle');
-
-/** @type {HTMLElement | null} */
-const navMenu = document.querySelector('.nav-menu');
-
-/** @type {NodeListOf<HTMLAnchorElement>} */
-const navLinks = document.querySelectorAll('.nav-links a');
-
 /**
  * Opens the mobile overlay menu and locks body scroll.
+ * @param {HTMLButtonElement | null} mobileToggle
+ * @param {HTMLElement | null} navMenu
  */
-function openMobileMenu() {
+function openMobileMenu(mobileToggle, navMenu) {
     if (mobileToggle && navMenu) {
         mobileToggle.classList.add(ClassName.ACTIVE);
         mobileToggle.setAttribute(AriaState.EXPANDED, 'true');
@@ -35,8 +25,10 @@ function openMobileMenu() {
 
 /**
  * Closes the mobile overlay menu and restores body scroll.
+ * @param {HTMLButtonElement | null} mobileToggle
+ * @param {HTMLElement | null} navMenu
  */
-function closeMobileMenu() {
+function closeMobileMenu(mobileToggle, navMenu) {
     if (mobileToggle && navMenu) {
         mobileToggle.classList.remove(ClassName.ACTIVE);
         mobileToggle.setAttribute(AriaState.EXPANDED, 'false');
@@ -47,9 +39,10 @@ function closeMobileMenu() {
 
 /**
  * Returns the current navbar height for scroll offset calculations.
+ * @param {HTMLElement | null} navbar
  * @returns {number} The navbar offsetHeight, or 80px as fallback.
  */
-function getNavHeight() {
+function getNavHeight(navbar) {
     return navbar ? navbar.offsetHeight : 80;
 }
 
@@ -58,14 +51,26 @@ function getNavHeight() {
  * sticky header scroll behavior, and smooth anchor scrolling.
  */
 export function initNavigation() {
+    /** @type {HTMLElement | null} */
+    const navbar = document.getElementById('navbar');
+
+    /** @type {HTMLButtonElement | null} */
+    const mobileToggle = document.querySelector('.mobile-toggle');
+
+    /** @type {HTMLElement | null} */
+    const navMenu = document.querySelector('.nav-menu');
+
+    /** @type {NodeListOf<HTMLAnchorElement>} */
+    const navLinks = document.querySelectorAll('.nav-links a');
+
     // --- Mobile Menu Toggle ---
     if (mobileToggle) {
         mobileToggle.addEventListener('click', () => {
             const isActive = mobileToggle.classList.contains(ClassName.ACTIVE);
             if (isActive) {
-                closeMobileMenu();
+                closeMobileMenu(mobileToggle, navMenu);
             } else {
-                openMobileMenu();
+                openMobileMenu(mobileToggle, navMenu);
             }
         });
     }
@@ -74,7 +79,7 @@ export function initNavigation() {
     navLinks.forEach((link) => {
         link.addEventListener('click', () => {
             if (mobileToggle && mobileToggle.classList.contains(ClassName.ACTIVE)) {
-                closeMobileMenu();
+                closeMobileMenu(mobileToggle, navMenu);
             }
         });
     });
@@ -86,7 +91,7 @@ export function initNavigation() {
             mobileToggle &&
             mobileToggle.classList.contains(ClassName.ACTIVE)
         ) {
-            closeMobileMenu();
+            closeMobileMenu(mobileToggle, navMenu);
             mobileToggle.focus();
         }
     });
@@ -128,7 +133,9 @@ export function initNavigation() {
                 e.preventDefault();
 
                 const targetPosition =
-                    targetElement.getBoundingClientRect().top + window.pageYOffset - getNavHeight();
+                    targetElement.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    getNavHeight(navbar);
 
                 window.scrollTo({
                     top: targetPosition,

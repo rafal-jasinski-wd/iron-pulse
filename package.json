@@ -6,12 +6,14 @@
     "main": "script.js",
     "scripts": {
         "serve": "npx serve -l 3000 .",
+        "test": "vitest run",
         "lint:js": "eslint \"**/*.js\"",
         "lint:css": "stylelint \"**/*.css\"",
         "lint": "npm run lint:js && npm run lint:css",
+        "type-check": "tsc --noEmit",
         "format:check": "prettier --check \"**/*.{html,css,js,json,md}\"",
         "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
-        "validate": "npm run lint && npm run format:check"
+        "validate": "npm test && npm run lint && npm run type-check && npm run format:check"
     },
     "keywords": [
         "fitness",
@@ -25,8 +27,11 @@
     "license": "MIT",
     "devDependencies": {
         "eslint": "^8.57.0",
+        "happy-dom": "^20.11.1",
         "prettier": "^3.2.5",
         "stylelint": "^16.2.1",
-        "stylelint-config-standard": "^36.0.0"
+        "stylelint-config-standard": "^36.0.0",
+        "typescript": "^5.9.3",
+        "vitest": "^4.1.10"
     }
 }

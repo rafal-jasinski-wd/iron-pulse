@@ -31,10 +31,42 @@ export function initForm() {
     /** @type {HTMLElement | null} */
     const navbar = document.getElementById('navbar');
 
+    /** @type {number} */
+    let lastSubmissionTime = 0;
+    const SUBMISSION_COOLDOWN_MS = 3000;
+
     if (registrationForm && thankYouCard) {
         registrationForm.addEventListener('submit', (e) => {
             try {
                 e.preventDefault();
+
+                const now = Date.now();
+                if (now - lastSubmissionTime < SUBMISSION_COOLDOWN_MS) {
+                    console.warn('Submission rate limit exceeded. Please wait a moment.');
+                    return;
+                }
+                lastSubmissionTime = now;
+
+                // Honeypot anti-spam check
+                /** @type {HTMLInputElement | null} */
+                const honeypot = /** @type {HTMLInputElement | null} */ (
+                    document.getElementById('website_hp')
+                );
+                if (honeypot && honeypot.value.trim() !== '') {
+                    console.warn('Bot submission detected via honeypot field.');
+                    return;
+                }
+
+                // Sanitize text inputs
+                const formData = new FormData(registrationForm);
+                const rawName = (formData.get('name') || '').toString().trim().slice(0, 100);
+                const rawEmail = (formData.get('email') || '').toString().trim().slice(0, 254);
+                const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!rawName || !rawEmail || !EMAIL_REGEX.test(rawEmail)) {
+                    console.warn('Submission rejected: missing or invalid email format.');
+                    return;
+                }
 
                 registrationForm.classList.add(ClassName.HIDDEN);
                 thankYouCard.classList.remove(ClassName.HIDDEN);

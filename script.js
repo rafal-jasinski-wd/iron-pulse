@@ -14,17 +14,11 @@
  * @module main
  */
 
-import { initTheme } from './js/theme.js';
-import { initNavigation } from './js/navigation.js';
-import { initReveals } from './js/reveals.js';
-import { initAccordion } from './js/accordion.js';
-import { initForm } from './js/form.js';
+import { bootstrapApp } from './js/index.js';
 
 // --- Global Error Boundary ---
 window.addEventListener('error', (event) => {
     console.error('IronPulse Global Script Error:', event.error || event.message);
-    // Prevent default browser crashing/handling if appropriate,
-    // but log it clearly for development audit safety.
 });
 
 window.addEventListener('unhandledrejection', (event) => {
@@ -33,11 +27,7 @@ window.addEventListener('unhandledrejection', (event) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     try {
-        initTheme();
-        initNavigation();
-        initReveals();
-        initAccordion();
-        initForm();
+        bootstrapApp();
     } catch (error) {
         console.error('Failed to initialize application modules:', error);
     }

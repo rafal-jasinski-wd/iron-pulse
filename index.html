@@ -13,7 +13,7 @@
         <!-- Security Headers -->
         <meta
             http-equiv="Content-Security-Policy"
-            content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://images.unsplash.com https://randomuser.me; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+            content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https://images.unsplash.com https://randomuser.me; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -65,11 +65,19 @@
             }
         </script>
 
+        <!-- Resource Hints for External Media Origins -->
+        <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://randomuser.me" crossorigin />
+
         <!-- Preload Hero Image for LCP -->
         <link
             rel="preload"
             as="image"
-            href="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1920&q=80"
+            href="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+            imagesrcset="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1920&q=80 1920w"
+            imagesizes="100vw"
+            fetchpriority="high"
         />
 
         <!-- Stylesheet -->
@@ -88,6 +96,9 @@
     </head>
 
     <body>
+        <!-- Accessibility Skip Link -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+
         <!-- SVG Sprite Definitions -->
         <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
             <symbol
@@ -187,7 +198,7 @@
             </div>
         </header>
 
-        <main>
+        <main id="main-content" tabindex="-1">
             <!-- Hero Section -->
             <section id="home" class="hero section">
                 <div class="container hero-container">
@@ -409,7 +420,7 @@
                         </p>
                     </div>
                     <div class="trainers-grid">
-                        <article
+                        <div
                             class="trainer-card card-hover reveal"
                             role="button"
                             aria-expanded="false"
@@ -456,8 +467,8 @@
                                     </p>
                                 </div>
                             </div>
-                        </article>
-                        <article
+                        </div>
+                        <div
                             class="trainer-card card-hover reveal delay-1"
                             role="button"
                             aria-expanded="false"
@@ -504,8 +515,8 @@
                                     </p>
                                 </div>
                             </div>
-                        </article>
-                        <article
+                        </div>
+                        <div
                             class="trainer-card card-hover reveal delay-2"
                             role="button"
                             aria-expanded="false"
@@ -553,7 +564,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -585,7 +596,7 @@
                                     height="50"
                                 />
                                 <div>
-                                    <h4>James Wilson</h4>
+                                    <h3>James Wilson</h3>
                                     <span>Software Engineer</span>
                                 </div>
                             </div>
@@ -606,7 +617,7 @@
                                     height="50"
                                 />
                                 <div>
-                                    <h4>Amanda Brooks</h4>
+                                    <h3>Amanda Brooks</h3>
                                     <span>Marketing Director</span>
                                 </div>
                             </div>
@@ -626,7 +637,7 @@
                                     height="50"
                                 />
                                 <div>
-                                    <h4>Michael Chang</h4>
+                                    <h3>Michael Chang</h3>
                                     <span>Architect</span>
                                 </div>
                             </div>
@@ -779,6 +790,16 @@
                             </p>
 
                             <form id="registration-form" class="register-form">
+                                <!-- Anti-Spam Honeypot Field (Hidden from human users) -->
+                                <div class="hidden" aria-hidden="true">
+                                    <input
+                                        type="text"
+                                        name="website_hp"
+                                        id="website_hp"
+                                        tabindex="-1"
+                                        autocomplete="off"
+                                    />
+                                </div>
                                 <div class="form-row">
                                     <div class="form-group">
                                         <label for="name">Full Name</label>
@@ -837,6 +858,19 @@
                                         placeholder="Share any specific requirements or injuries..."
                                     ></textarea>
                                 </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input
+                                            type="checkbox"
+                                            name="privacy_consent"
+                                            id="privacy_consent"
+                                            required
+                                        />
+                                        I agree to the
+                                        <a href="#privacy" class="link-text">Privacy Policy</a> and
+                                        processing of my contact information.
+                                    </label>
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-large btn-full">
                                     Confirm Registration
                                 </button>
@@ -894,7 +928,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4>Call Us</h4>
+                                    <h3>Call Us</h3>
                                     <p>+1 (555) 000-IRON</p>
                                 </div>
                             </div>
@@ -918,7 +952,7 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4>Email Us</h4>
+                                    <h3>Email Us</h3>
                                     <p>hello@ironpulse.fitness</p>
                                 </div>
                             </div>
@@ -940,10 +974,51 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4>Visit Us</h4>
+                                    <h3>Visit Us</h3>
                                     <p>123 Performance Ave, Fitness City</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Privacy Policy & Data Protection Section -->
+            <section id="privacy" class="section privacy-section reveal">
+                <div class="container">
+                    <div class="section-header text-center">
+                        <span class="badge">Compliance & Rights</span>
+                        <h2>Privacy Policy &amp; Data Protection</h2>
+                        <p class="section-subtitle">
+                            IronPulse is committed to protecting your personal data in full
+                            compliance with GDPR and CCPA standards.
+                        </p>
+                    </div>
+
+                    <div class="privacy-grid">
+                        <div class="privacy-card">
+                            <h3>1. Information We Collect</h3>
+                            <p>
+                                We collect minimal personal data strictly necessary to process
+                                intake registrations: your full name and email address. No tracking
+                                cookies or behavioral profiling tools are used.
+                            </p>
+                        </div>
+                        <div class="privacy-card">
+                            <h3>2. Local Storage Usage</h3>
+                            <p>
+                                Client-side local storage (`localStorage`) is used exclusively to
+                                store your preferred color theme preference (dark or light mode). No
+                                sensitive or identifiable data is persisted locally.
+                            </p>
+                        </div>
+                        <div class="privacy-card">
+                            <h3>3. Your Data Subject Rights</h3>
+                            <p>
+                                Under GDPR/CCPA, you hold the right to access, rectify, export, or
+                                request immediate erasure of your data. Contact
+                                privacy@ironpulse.fitness to execute data subject requests.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1028,17 +1103,18 @@
                 </div>
                 <div class="footer-links">
                     <div class="link-group">
-                        <h4>Company</h4>
+                        <h3>Company</h3>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="#features">About Us</a></li>
+                            <li><a href="#register">Careers</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div class="link-group">
-                        <h4>Programs</h4>
+                        <h3>Programs</h3>
                         <ul>
-                            <li><a href="#">Strength & Power</a></li>
-                            <li><a href="#">Fat Loss</a></li>
+                            <li><a href="#programs">Strength & Power</a></li>
+                            <li><a href="#programs">Fat Loss</a></li>
                         </ul>
                     </div>
                 </div>

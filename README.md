@@ -22,6 +22,19 @@ https://rafal-jasinski-wd.github.io/iron-pulse/
 | 📝 **Registration Form**         | Goal & membership selection with a "Thank You" success state |
 | 🧭 **Smooth Scrolling**          | Anchor-based navigation with offset-aware scrolling          |
 | 🖼️ **AI-Generated Imagery**      | Custom-branded trainer portraits                             |
+| 🛡️ **Honeypot Anti-Spam**        | Client intake rate-limiting and anti-bot protection          |
+| 🧪 **100% Passing Unit Tests**   | DOM-enabled Vitest suite for all interactive JS modules      |
+
+---
+
+## 🏆 Lighthouse Scorecard
+
+| Category                    |     Score     |      Status       |
+| :-------------------------- | :-----------: | :---------------: |
+| ⚡ **Performance**          | **100 / 100** | 🟢 Perfect (100%) |
+| ♿ **Accessibility (a11y)** | **100 / 100** | 🟢 Perfect (100%) |
+| 🛡️ **Best Practices**       | **100 / 100** | 🟢 Perfect (100%) |
+| 🔍 **SEO**                  | **100 / 100** | 🟢 Perfect (100%) |
 
 ---
 

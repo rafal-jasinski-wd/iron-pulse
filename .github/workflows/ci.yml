@@ -1,4 +1,4 @@
-name: CI
+name: CI Validation Pipeline
 
 on:
   push:
@@ -7,21 +7,39 @@ on:
     branches: [ main, master ]
 
 jobs:
-  build-and-validate:
+  validate:
+    name: Build & Security Validation
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18
-        cache: 'npm'
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
-    - name: Install Dependencies
-      run: npm ci
+      - name: Install Dependencies
+        run: npm ci
 
-    - name: Run Linters & Formatter Checks
-      run: npm run validate
+      - name: Run Automated Unit Tests (Vitest)
+        run: npm test
+
+      - name: Run Static Code Analysis (ESLint & Stylelint)
+        run: npm run lint
+
+      - name: Run TypeScript Type Checker (tsc)
+        run: npm run type-check
+
+      - name: Verify Code Style Formatting (Prettier)
+        run: npm run format:check
+
+      - name: Dependency Vulnerability Audit
+        run: npm audit --audit-level=high
+
