@@ -13,7 +13,7 @@
         const savedTheme = localStorage.getItem('theme');
         const validTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
         document.documentElement.setAttribute('data-theme', validTheme);
-    } catch (err) {
+    } catch (_err) {
         // Fallback gracefully if localStorage is disabled or throws in private browsing
         document.documentElement.setAttribute('data-theme', 'dark');
     }

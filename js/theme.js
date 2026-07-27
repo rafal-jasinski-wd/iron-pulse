@@ -44,7 +44,7 @@ export function initTheme() {
             htmlElement.setAttribute('data-theme', newTheme);
             try {
                 localStorage.setItem('theme', newTheme);
-            } catch (e) {
+            } catch (_e) {
                 // Ignore storage errors in private browsing
             }
             updateThemeToggleAccessibility(newTheme, themeToggleBtn);

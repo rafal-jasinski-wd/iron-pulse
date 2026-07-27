@@ -29,12 +29,14 @@
     "author": "IronPulse Team",
     "license": "MIT",
     "devDependencies": {
-        "eslint": "^8.57.0",
+        "@eslint/js": "^10.0.1",
+        "eslint": "^10.8.0",
+        "globals": "^17.8.0",
         "happy-dom": "^20.11.1",
-        "prettier": "^3.2.5",
-        "stylelint": "^16.2.1",
-        "stylelint-config-standard": "^36.0.0",
-        "typescript": "^5.9.3",
+        "prettier": "^3.9.6",
+        "stylelint": "^17.14.1",
+        "stylelint-config-standard": "^40.0.0",
+        "typescript": "^7.0.2",
         "vitest": "^4.1.10"
     }
 }

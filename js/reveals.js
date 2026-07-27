@@ -19,7 +19,9 @@ export function initReveals() {
     const revealElements = document.querySelectorAll('.reveal');
     let revealCount = revealElements.length;
 
-    if (revealCount === 0) return;
+    if (revealCount === 0) {
+        return;
+    }
 
     /** @type {IntersectionObserverInit} */
     const revealOptions = {

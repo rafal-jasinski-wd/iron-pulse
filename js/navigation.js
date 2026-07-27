@@ -125,7 +125,9 @@ export function initNavigation() {
     anchors.forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (!targetId || targetId === '#') return;
+            if (!targetId || targetId === '#') {
+                return;
+            }
 
             /** @type {HTMLElement | null} */
             const targetElement = document.querySelector(targetId);

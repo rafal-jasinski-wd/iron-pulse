@@ -20,7 +20,9 @@ function toggleTrainerCard(card, allCards) {
 
     /** @type {HTMLElement | null} */
     const bio = card.querySelector('.trainer-bio');
-    if (!bio) return;
+    if (!bio) {
+        return;
+    }
 
     // Close all other expanded cards (accordion pattern)
     allCards.forEach((otherCard) => {
