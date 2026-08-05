@@ -7,6 +7,10 @@
     "engines": {
         "node": ">=20.0.0"
     },
+    "overrides": {
+        "brace-expansion": ">=5.0.8",
+        "fast-uri": ">=3.1.4"
+    },
     "scripts": {
         "serve": "npx serve -l 3000 .",
         "test": "vitest run",
